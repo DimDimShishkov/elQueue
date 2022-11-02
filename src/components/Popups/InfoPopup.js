@@ -3,14 +3,7 @@ import { useEffect } from "react";
 /**
  * попап с созданным талоном
  */
-export default function InfoPopup({
-  isOpen,
-  onClose,
-  isInfo,
-  isErr = false,
-  isEdit = false,
-  isDelete = false,
-}) {
+export default function InfoPopup({ isOpen, onClose, isInfo, isErr = false, isEdit = false, isDelete = false }) {
   let content;
   if (isErr) {
     content = (
@@ -21,9 +14,7 @@ export default function InfoPopup({
   } else if (isEdit) {
     content = (
       <div className="popup__container">
-        <h2 className="popup__title">
-          Внесены изменения в талон {isInfo.type + isInfo.id}
-        </h2>
+        <h2 className="popup__title">Внесены изменения в талон {isInfo.type + isInfo.id}</h2>
       </div>
     );
   } else if (isDelete) {

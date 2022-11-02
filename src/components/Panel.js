@@ -1,11 +1,6 @@
 import logo from "./../images/logoScrubs.png";
 
-export default function Panel({
-  editTicketPopup,
-  newTicketPopup,
-  currentTime,
-  currentDate,
-}) {
+export default function Panel({ editTicketPopup, newTicketPopup, currentTime, currentDate }) {
   return (
     <div className="panel">
       <img src={logo} alt="sacred logo" className="panel__logo" />

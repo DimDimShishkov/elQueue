@@ -1,30 +1,32 @@
-import Ticket from "./Ticket";
-import { useSelector } from "react-redux";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { removeTicket } from "../../redux/ticketsSlice";
 import TicketDeletePopup from "../Popups/TicketDeletePopup";
+import Ticket from "./Ticket";
 
 export default function Main() {
+  const dispatch = useDispatch();
   const { tickets } = useSelector((state) => state.tickets);
+
   const [ticketToDelete, setTicketToDelete] = useState(null);
-  const [isTicketPopupOpen, setTicketPopupOpen] = useState(false);
+  const [deletePopupOpened, setDeletePopupOpened] = useState(false);
 
-  function hanleOpenDeletePopup(item) {
+  const handleOpenDeletePopup = (item) => {
     setTicketToDelete(item);
-    setTicketPopupOpen(true);
-  }
+    setDeletePopupOpened(true);
 
-  let ticketsForRendering;
-  if (tickets.length > 0) {
-    ticketsForRendering = tickets
-      .slice(0, 10)
-      .map((item, i) => (
-        <Ticket card={item} key={i} deleteTicket={hanleOpenDeletePopup} />
-      ));
-  } else {
-    ticketsForRendering = (
-      <p className="main__text">На данный момент талонов нет</p>
-    );
-  }
+    setTimeout(function () {
+      dispatch(removeTicket(item));
+    }, 5000);
+  };
+
+  const ticketsForRendering = () => {
+    if (tickets.length) {
+      return tickets.slice(0, 10).map((item, i) => <Ticket card={item} key={i} deleteTicket={handleOpenDeletePopup} />);
+    } else {
+      return <p className="main__text">На данный момент талонов нет</p>;
+    }
+  };
 
   return (
     <div className="main">
@@ -32,13 +34,9 @@ export default function Main() {
         <h2 className="main__heading">Посетитель</h2>
         <h2 className="main__heading">Осталось до приёма</h2>
       </div>
-      <div className="main__ticket-container">{ticketsForRendering}</div>
+      <div className="main__ticket-container">{ticketsForRendering()}</div>
       {ticketToDelete && (
-        <TicketDeletePopup
-          isOpen={isTicketPopupOpen}
-          onClose={() => setTicketPopupOpen(false)}
-          ticket={ticketToDelete}
-        />
+        <TicketDeletePopup isOpen={deletePopupOpened} onClose={() => setDeletePopupOpened(false)} ticket={ticketToDelete} />
       )}
     </div>
   );

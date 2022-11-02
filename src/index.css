@@ -27,7 +27,7 @@
 @import url(./blocks/popup/__subtitle/popup__subtitle.css);
 @import url(./blocks/popup/__form/popup__form.css);
 @import url(./blocks/popup/__select/popup__select.css);
-@import url(./blocks/popup/__checkboxs/popup__checkboxs.css);
+@import url(./blocks/popup/__checkboxes/popup__checkboxes.css);
 @import url(./blocks/popup/__label/popup__label.css);
 @import url(./blocks/popup/__label/type/popup__label_active.css);
 @import url(./blocks/popup/__checkbox/popup__checkbox.css);

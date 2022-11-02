@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Header from "./Header";
 import Main from "./Main/Main";
 import AdminPanel from "./AdminPanel";
@@ -17,10 +16,6 @@ function App() {
           <Route path="terminal" element={<Terminal />} />
           <Route path="*" element={<NoPage />} />
         </Route>
-        {/*   <Header headerButtons={shownPanel} changePanel={handleChangePanel} />
-              {shownPanel === "scoreboard" && <Main />}
-      {shownPanel === "admin" && <AdminPanel />}
-      {shownPanel === "terminal" && <Terminal />} */}
       </Routes>
     </div>
   );

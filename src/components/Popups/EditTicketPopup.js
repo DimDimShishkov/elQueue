@@ -35,9 +35,7 @@ export default function EditTicketPopup({ isOpen, onClose, chosenTicket }) {
 
   // подсветка существующего времени
   useEffect(() => {
-    const index = Timetable.findIndex(
-      (item) => item.time.split(":")[0] === chosenTicket.time.split(":")[0]
-    );
+    const index = Timetable.findIndex((item) => item.time.split(":")[0] === chosenTicket.time.split(":")[0]);
     const newForm = [...Timetable];
     const item = Timetable[index];
     newForm[index] = { ...item, checked: true };
@@ -74,11 +72,7 @@ export default function EditTicketPopup({ isOpen, onClose, chosenTicket }) {
     const diffTime = (Date.parse(date2) - Date.parse(currentDate)) / 1000;
     if (diffTime < 0) {
       setButtonText("Выбранно прошедшее время");
-    } else if (
-      tickets.some(
-        (elem) => elem.time === chosenTime && elem.id !== chosenTicket.id
-      )
-    ) {
+    } else if (tickets.some((elem) => elem.time === chosenTime && elem.id !== chosenTicket.id)) {
       setButtonText("Время занято");
     } else {
       setNewTicket({ id: chosenTicket.id, type: chosenBranch });
@@ -95,21 +89,11 @@ export default function EditTicketPopup({ isOpen, onClose, chosenTicket }) {
   }
 
   return (
-    <div
-      className={`popup ${isOpen && "popup_opened"}`}
-      onClick={() => onClose()}
-    >
-      <div
-        className="popup__container"
-        onClick={(evt) => evt.stopPropagation()}
-      >
+    <div className={`popup ${isOpen && "popup_opened"}`} onClick={() => onClose()}>
+      <div className="popup__container" onClick={(evt) => evt.stopPropagation()}>
         <form className="popup__form" onSubmit={handleSubmitEditForm}>
           <p className="popup__subtitle">Выберите направление</p>
-          <select
-            onChange={handleChosenBranch}
-            className="popup__select"
-            defaultValue={chosenBranch}
-          >
+          <select onChange={handleChosenBranch} className="popup__select" defaultValue={chosenBranch}>
             {Branches.map((el, i) => (
               <option value={el.value} key={i}>
                 {el.text}
@@ -118,7 +102,7 @@ export default function EditTicketPopup({ isOpen, onClose, chosenTicket }) {
           </select>
 
           <p className="popup__subtitle">Выберите время</p>
-          <div className="popup__checkboxs">
+          <div className="popup__checkboxes">
             {formPoints?.map((item, i) => {
               return (
                 <Checkbox
@@ -134,38 +118,21 @@ export default function EditTicketPopup({ isOpen, onClose, chosenTicket }) {
           </div>
 
           <p className="popup__subtitle">Выберите лечащего врача</p>
-          <select
-            onChange={handleChosenDoctor}
-            className="popup__select"
-            defaultValue={chosenDoctor}
-          >
-            {Doctors.filter((arr) => arr.branch === chosenBranch).map(
-              (el, i) => (
-                <option value={el.value} key={i}>
-                  {el.text}
-                </option>
-              )
-            )}
+          <select onChange={handleChosenDoctor} className="popup__select" defaultValue={chosenDoctor}>
+            {Doctors.filter((arr) => arr.branch === chosenBranch).map((el, i) => (
+              <option value={el.value} key={i}>
+                {el.text}
+              </option>
+            ))}
           </select>
 
           <button type="submit" className="popup__submit-button">
             {buttonText}
           </button>
         </form>
-        <button
-          className="popup__exit-button"
-          type="button"
-          onClick={() => onClose()}
-        ></button>
+        <button className="popup__exit-button" type="button" onClick={() => onClose()}></button>
       </div>
-      {newTicket && (
-        <InfoPopup
-          isOpen={isOpen}
-          onClose={onClose}
-          isInfo={newTicket}
-          isEdit={true}
-        />
-      )}
+      {newTicket && <InfoPopup isOpen={isOpen} onClose={onClose} isInfo={newTicket} isEdit={true} />}
     </div>
   );
 }

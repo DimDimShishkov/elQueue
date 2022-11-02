@@ -3,12 +3,8 @@ import { Link } from "react-router-dom";
 import logo from "./../images/logoScrubs.png";
 
 export default function Header() {
-  const [currentTime, setCurrentTime] = useState(
-    new Date().toLocaleTimeString()
-  );
-  const [currentDate, setCurrentDate] = useState(
-    new Date().toLocaleDateString()
-  );
+  const [currentTime, setCurrentTime] = useState(new Date().toLocaleTimeString());
+  const [currentDate, setCurrentDate] = useState(new Date().toLocaleDateString());
 
   useEffect(() => {
     const interval = setInterval(() => {

@@ -8,7 +8,7 @@ export default function TicketDeletePopup({ isOpen, onClose, ticket }) {
     setTimeout(function () {
       onClose();
     }, 5000);
-  }, [ticket]);
+  }, [onClose, ticket]);
 
   return (
     <div className={`popup ${isOpen && "popup_opened"}`}>
