@@ -104,8 +104,6 @@ export default function AddTicketPopup({ isOpen, onClose }) {
     }
   }
 
-
-
   return (
     <div
       className={`popup ${isOpen && "popup_opened"}`}

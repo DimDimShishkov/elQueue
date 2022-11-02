@@ -4,7 +4,6 @@ import { useEffect } from "react";
  * попап с талоном удаления из очереди
  */
 export default function TicketDeletePopup({ isOpen, onClose, ticket }) {
-
   useEffect(() => {
     setTimeout(function () {
       onClose();

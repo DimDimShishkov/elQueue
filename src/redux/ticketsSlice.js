@@ -9,7 +9,7 @@ function setTicketsToLS(items) {
 }
 
 if (!initialTickets || initialTickets.length === 0) {
- // let ticketsArr = Tickets // для заданных талонов
+  // let ticketsArr = Tickets // для заданных талонов
   let ticketsArr = []; // для сгенерированных талонов
   for (let i = 0; i < 10; i++) {
     ticketsArr.push(generateTimetable(i));

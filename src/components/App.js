@@ -6,7 +6,7 @@ import Terminal from "./Terminal";
 
 function App() {
   const [shownPanel, setShownPanel] = useState("terminal");
-  
+
   function handleChangePanel(panel) {
     setShownPanel(panel);
   }

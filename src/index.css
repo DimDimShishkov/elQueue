@@ -29,7 +29,6 @@
 @import url(./blocks/popup/__button/popup__button.css);
 @import url(./blocks/popup/__exit-button/popup__exit-button.css);
 
-
 #root {
   background-image: url(./images/background.jpg);
   background-position: center;

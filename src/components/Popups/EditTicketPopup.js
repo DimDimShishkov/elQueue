@@ -159,7 +159,12 @@ export default function EditTicketPopup({ isOpen, onClose, chosenTicket }) {
         ></button>
       </div>
       {newTicket && (
-        <InfoPopup isOpen={isOpen} onClose={onClose} isInfo={newTicket} isEdit={true}/>
+        <InfoPopup
+          isOpen={isOpen}
+          onClose={onClose}
+          isInfo={newTicket}
+          isEdit={true}
+        />
       )}
     </div>
   );

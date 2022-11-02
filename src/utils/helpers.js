@@ -11,7 +11,7 @@ export default function GenerateTimetable(ticketsLastId) {
   }`;
   const typeArr = ["A", "B", "C", "D"];
   const typeForGenerator = typeArr[Math.floor(Math.random() * typeArr.length)];
-  const timeArr = ["08", "09", 10, 11, 12, 13, 14, 15, 16, 17, 18, 19].filter(
+  const timeArr = [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21].filter(
     (el) => el >= currentHour
   );
   const hourForGenerator = timeArr[Math.floor(Math.random() * timeArr.length)];

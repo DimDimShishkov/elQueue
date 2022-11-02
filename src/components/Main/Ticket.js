@@ -5,10 +5,8 @@ import { removeTicket } from "../../redux/ticketsSlice";
 export default function Ticket({ card, deleteTicket }) {
   const dispatch = useDispatch();
   const [leftTime, setLeftTime] = useState();
-  const [currentDate, setCurrentDate] = useState(
-    new Date()
-  );
-  
+  const [currentDate, setCurrentDate] = useState(new Date());
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentDate(new Date());
@@ -38,7 +36,9 @@ export default function Ticket({ card, deleteTicket }) {
 
   return (
     <div className="ticket">
-      <div className="ticket__info">{`№${card.type + card.id}, к доктору ${card.description}`}</div>
+      <div className="ticket__info">{`№${card.type + card.id}, к доктору ${
+        card.description
+      }`}</div>
       <div className="ticket__time">{leftTime} </div>
     </div>
   );

@@ -1,13 +1,23 @@
 /**
  * Checkbox выбора времени для записи и талона для редактирования
  */
-export const Checkbox = ({ label, value, onChange, checked, name, defaultChecked }) => {
-  
+export const Checkbox = ({
+  label,
+  value,
+  onChange,
+  checked,
+  name,
+  defaultChecked,
+}) => {
   return (
-    <label className={`popup__label ${(defaultChecked || checked) && "popup__label_active"}`}>
+    <label
+      className={`popup__label ${
+        (defaultChecked || checked) && "popup__label_active"
+      }`}
+    >
       <input
         type="checkbox"
-       checked={checked}
+        checked={checked}
         name={name}
         value={value}
         onChange={onChange}
