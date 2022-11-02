@@ -1,22 +1,27 @@
 import { useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./Header";
 import Main from "./Main/Main";
 import AdminPanel from "./AdminPanel";
 import Terminal from "./Terminal";
+import NoPage from "./NoPage";
 
 function App() {
-  const [shownPanel, setShownPanel] = useState("terminal");
-
-  function handleChangePanel(panel) {
-    setShownPanel(panel);
-  }
-
   return (
     <div className="page">
-      <Header headerButtons={shownPanel} changePanel={handleChangePanel} />
-      {shownPanel === "scoreboard" && <Main />}
+      <Header />
+      <Routes>
+        <Route path="/">
+          <Route index element={<Main />} />
+          <Route path="admin" element={<AdminPanel />} />
+          <Route path="terminal" element={<Terminal />} />
+          <Route path="*" element={<NoPage />} />
+        </Route>
+        {/*   <Header headerButtons={shownPanel} changePanel={handleChangePanel} />
+              {shownPanel === "scoreboard" && <Main />}
       {shownPanel === "admin" && <AdminPanel />}
-      {shownPanel === "terminal" && <Terminal />}
+      {shownPanel === "terminal" && <Terminal />} */}
+      </Routes>
     </div>
   );
 }

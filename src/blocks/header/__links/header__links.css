@@ -1,6 +1,6 @@
-.header__time-container {
+.header__links {
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 5px;
-  margin-left: auto;
 }

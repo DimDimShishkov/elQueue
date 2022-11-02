@@ -9,4 +9,7 @@
   font-family: "Inter", sans-serif, Arial;
   color: rgb(0, 0, 0);
   text-rendering: optimizeLegibility;
+  display: flex;
+  flex-direction: column;
+  
 }
