@@ -1,4 +1,3 @@
-import PopupWithForm from "./PopupWithForm";
 import { useState, useEffect } from "react";
 import { Checkbox } from "./Checkbox";
 import Timetable from "../../utils/Timetable.json";
@@ -29,7 +28,7 @@ export default function AddTicketPopup({ isOpen, onClose }) {
   useEffect(() => {
     let doctorsArr = Doctors.filter((arr) => arr.branch === chosenBranch);
     setDoctorsArr(doctorsArr);
-    setChosenDoctor(doctorsArr[0].text);
+    setChosenDoctor(doctorsArr[0]?.text);
   }, [chosenBranch]);
 
   // закрытие попаппа по нажатию Esc
@@ -152,7 +151,7 @@ export default function AddTicketPopup({ isOpen, onClose }) {
               <select
                 onChange={handleChosenDoctor}
                 className="popup__select"
-                defaultValue={doctorsArr[0].value}
+                defaultValue={doctorsArr[0]?.value}
               >
                 {doctorsArr?.map((el, i) => (
                   <option value={el.value} key={i}>

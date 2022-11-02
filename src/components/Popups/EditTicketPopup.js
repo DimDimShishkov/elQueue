@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Checkbox } from "./Checkbox";
-import PopupWithForm from "./PopupWithForm";
 import Timetable from "../../utils/Timetable.json";
 import Branches from "../../utils/Branches.json";
 import Doctors from "../../utils/Doctors.json";

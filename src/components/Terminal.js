@@ -106,7 +106,7 @@ export default function Terminal() {
   useEffect(() => {
     let doctorsArr = Doctors.filter((arr) => arr.branch === chosenBranch);
     setDoctorsArr(doctorsArr);
-    setChosenDoctor(doctorsArr[0].text);
+    setChosenDoctor(doctorsArr[0]?.text);
   }, [chosenBranch]);
 
   return (
@@ -147,7 +147,7 @@ export default function Terminal() {
             <select
               onChange={handleChosenDoctor}
               className="popup__select"
-              defaultValue={doctorsArr[0].value}
+              defaultValue={doctorsArr[0]?.value}
             >
               {doctorsArr?.map((el, i) => (
                 <option value={el.value} key={i}>

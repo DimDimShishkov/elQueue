@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { removeTicket } from "../../redux/ticketsSlice";
 
 export default function Ticket({ card, deleteTicket }) {
+  const dispatch = useDispatch();
   const [leftTime, setLeftTime] = useState();
   const [currentDate, setCurrentDate] = useState(
     new Date()
@@ -25,6 +28,9 @@ export default function Ticket({ card, deleteTicket }) {
       .join(":");
     setLeftTime(resultTimeString);
     if (diffTime <= 0) {
+      setTimeout(function () {
+        dispatch(removeTicket(card));
+      }, 5000);
       deleteTicket(card);
       setLeftTime("00:00:00");
     }

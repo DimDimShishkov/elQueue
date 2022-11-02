@@ -1,16 +1,12 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { removeTicket } from "../../redux/ticketsSlice";
 
 /**
  * попап с талоном удаления из очереди
  */
 export default function TicketDeletePopup({ isOpen, onClose, ticket }) {
-  const dispatch = useDispatch();
 
   useEffect(() => {
     setTimeout(function () {
-      dispatch(removeTicket(ticket));
       onClose();
     }, 5000);
   }, [ticket]);
