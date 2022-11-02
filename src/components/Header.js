@@ -19,13 +19,13 @@ export default function Header() {
       <img src={logo} alt="sacred logo" className="header__logo" />
       <h1 className="header__title">Sacred Heart Hospital</h1>
       <div className="header__links">
-        <Link className="header__link" to="/">
+        <Link className="header__link" to="test_WaveAccess/">
           Общее табло
         </Link>
-        <Link className="header__link" to="/admin">
+        <Link className="header__link" to="test_WaveAccess/admin">
           Админ
         </Link>
-        <Link className="header__link" to="/terminal">
+        <Link className="header__link" to="test_WaveAccess/terminal">
           Записаться
         </Link>
       </div>

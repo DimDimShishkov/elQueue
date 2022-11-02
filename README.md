@@ -10,6 +10,7 @@
 # Описание:
 
 В тестовом задании реализована электронная очередь для Sacred Heart Hospital.
+[Ссылка на проект](https://dimdimshishkov.github.io/test_WaveAccess/)
 
 # На странице есть:
 
@@ -32,5 +33,5 @@
 # Инструкция по копированию:
 
 ```
-git clone git@github.com:DimDimShishkov/elQueue.git
+git clone git@github.com:DimDimShishkov/test_WaveAccess.git
 ```

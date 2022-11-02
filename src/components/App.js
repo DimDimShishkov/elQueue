@@ -10,7 +10,7 @@ function App() {
     <div className="page">
       <Header />
       <Routes>
-        <Route path="/">
+        <Route path="test_WaveAccess/">
           <Route index element={<Main />} />
           <Route path="admin" element={<AdminPanel />} />
           <Route path="terminal" element={<Terminal />} />
