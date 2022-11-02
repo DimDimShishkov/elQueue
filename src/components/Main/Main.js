@@ -22,7 +22,7 @@ export default function Main() {
 
   const ticketsForRendering = () => {
     if (tickets.length) {
-      return tickets.slice(0, 10).map((item, i) => <Ticket card={item} key={i} deleteTicket={handleOpenDeletePopup} />);
+      return tickets.slice(0, 10).map((ticket) => <Ticket card={ticket} key={ticket.id} deleteTicket={handleOpenDeletePopup} />);
     } else {
       return <p className="main__text">На данный момент талонов нет</p>;
     }

@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { sortingTimetable } from "../utils/helpers";
 import { addTicket } from "./../redux/ticketsSlice";
-import MockBranches from "./../utils/Branches.json";
-import MockDoctors from "./../utils/Doctors.json";
+import MockBranches from "./../utils/MockBranches.json";
+import MockDoctors from "./../utils/MockDoctors.json";
 import Timetable from "./../utils/Timetable.json";
 import { Checkbox } from "./Popups/Checkbox";
 import InfoPopup from "./Popups/InfoPopup";
@@ -26,28 +27,19 @@ export default function Terminal() {
 
   // подсветка текущего времени
   useEffect(() => {
-    const currentTime = new Date().toLocaleTimeString();
-    const index = Timetable.findIndex((item) => item.time.split(":")[0] > currentTime.split(":")[0]);
-    const newTimetableForm = [...Timetable];
-    const item = Timetable[index];
-    newTimetableForm[index] = { ...item, checked: true };
+    setFormPoints(sortingTimetable(tickets));
+    setSelectedTime(sortingTimetable(tickets).find((item) => item.checked).time);
 
-    newTimetableForm.forEach((x) => {
-      x.disabled = tickets.some((elem) => elem.time === x.time);
-    });
-
-    setFormPoints(newTimetableForm);
-    setSelectedTime(item.time);
     setSelectedBranch("A");
   }, []);
 
   useEffect(() => {
     const filteredDoctors = MockDoctors.filter((x) => x.branch === selectedBranch);
-
     setDoctors(filteredDoctors);
     setSelectedDoctor(filteredDoctors[0]?.text);
   }, [selectedBranch]);
 
+  // отправка формы
   const handleSubmitAddForm = (evt) => {
     evt.preventDefault();
 
@@ -55,48 +47,62 @@ export default function Terminal() {
     setButtonText("Идет загрузка...");
     setTimeout(function () {
       setButtonText("Записаться");
+      setNewTicket(null);
     }, 1000);
+
     const chosenDate = new Date().toISOString().split("T")[0];
     const date2 = new Date(`${chosenDate}T${selectedTime}`);
     const currentDate = new Date();
     const diffTime = (date2 - currentDate) / 1000;
     if (!selectedTime || diffTime < 0) {
       setErrInfo("Выберите подходящее время");
-      setOpenInfoPopup(true);
-    } else if (tickets.some((elem) => elem.time === selectedTime)) {
+      return setOpenInfoPopup(true);
+    }
+    if (tickets.some((elem) => elem.time === selectedTime)) {
       setErrInfo("Время занято");
-      setOpenInfoPopup(true);
-    } else if (!selectedDoctor || !selectedBranch) {
+      return setOpenInfoPopup(true);
+    }
+    if (!selectedDoctor || !selectedBranch) {
       setErrInfo("Выберите направление и врача");
-      setOpenInfoPopup(true);
-    } else {
-      setNewTicket({
+      return setOpenInfoPopup(true);
+    }
+    dispatch(
+      addTicket({
         id: ticketsLastId + 1,
         type: selectedBranch,
-      });
-      setOpenInfoPopup(true);
-      dispatch(
-        addTicket({
-          id: ticketsLastId + 1,
-          type: selectedBranch,
-          description: selectedDoctor,
-          date: chosenDate,
-          time: selectedTime,
-        })
-      );
-      setSelectedTime(null);
-    }
+        description: selectedDoctor,
+        date: chosenDate,
+        time: selectedTime,
+      })
+    );
+    setNewTicket({
+      id: ticketsLastId + 1,
+      type: selectedBranch,
+    });
+    setFormPoints(sortingTimetable(tickets));
+    setOpenInfoPopup(true);
+    return setSelectedTime(null);
   };
 
   // функция смены времени для записи
   const handleChangeTime = (e) => {
     const { checked, name } = e.target;
+    const currentTime = new Date().toLocaleTimeString();
     const index = Timetable.findIndex((item) => item.name === name);
-    const newForm = [...Timetable];
+    const newTimetableForm = [...Timetable];
     const item = Timetable[index];
-    newForm[index] = { ...item, checked };
-    setFormPoints(newForm);
-    setSelectedTime(item.time);
+    newTimetableForm[index] = { ...item, checked };
+    if (tickets.length) {
+      newTimetableForm.forEach((x) => {
+        x.disabled = tickets?.some((ticket) => ticket.time === x.time || x.time.split(":")[0] <= currentTime.split(":")[0]);
+      });
+    } else {
+      newTimetableForm.forEach((x) => {
+        x.disabled = x.time.split(":")[0] <= currentTime.split(":")[0];
+      });
+    }
+    setFormPoints(newTimetableForm);
+    setSelectedTime(newTimetableForm[index].checked ? newTimetableForm[index].time : null);
   };
 
   // функция выбора направления
@@ -117,23 +123,24 @@ export default function Terminal() {
       <form className="popup__form" onSubmit={handleSubmitAddForm}>
         <p className="popup__subtitle">Выберите направление</p>
         <select onChange={handleChosenBranch} className="popup__select" defaultValue={"A"}>
-          {MockBranches.map((el, i) => (
-            <option value={el.value} key={i}>
-              {el.text}
+          {MockBranches.map((branch) => (
+            <option value={branch.value} key={branch.value}>
+              {branch.text}
             </option>
           ))}
         </select>
+
         <p className="popup__subtitle">Выберите время</p>
         <div className="popup__checkboxes">
-          {formPoints?.map((item, i) => (
+          {formPoints.map((point) => (
             <Checkbox
-              label={item.label}
-              value={item.value}
-              name={item.name}
-              checked={item.checked}
-              disabled={item.disabled}
+              label={point.label}
+              value={point.value}
+              name={point.name}
+              checked={point.checked}
+              disabled={point.disabled}
               onChange={handleChangeTime}
-              key={i}
+              key={point.value}
             />
           ))}
         </div>
@@ -141,10 +148,10 @@ export default function Terminal() {
         {selectedBranch && (
           <>
             <p className="popup__subtitle">Выберите лечащего врача</p>
-            <select onChange={handleChosenDoctor} className="popup__select" defaultValue={doctors[0]?.value}>
-              {doctors?.map((el, i) => (
-                <option value={el.value} key={i}>
-                  {el.text}
+            <select onChange={handleChosenDoctor} className="popup__select" defaultValue={doctors[0]?.text}>
+              {doctors?.map((doctor) => (
+                <option value={doctor.text} key={doctor.text}>
+                  {doctor.text}
                 </option>
               ))}
             </select>
@@ -155,7 +162,7 @@ export default function Terminal() {
           {buttonText}
         </button>
       </form>
-      {isOpenInfoPopup && <InfoPopup isOpen={isOpenInfoPopup} onClose={() => setOpenInfoPopup(false)} isInfo={errInfo} isErr={true} />}
+      {errInfo && <InfoPopup isOpen={isOpenInfoPopup} onClose={() => setOpenInfoPopup(false)} isInfo={errInfo} isErr={true} />}
       {newTicket && <InfoPopup isOpen={isOpenInfoPopup} onClose={() => setOpenInfoPopup(false)} isInfo={newTicket} />}
     </div>
   );

@@ -66,8 +66,8 @@ export default function AdminPanel() {
           <h2 className="popup__subtitle">Выберите талон</h2>
           <div className="popup__checkboxes">
             {tickets.length ? (
-              tickets.map((item, i) => {
-                return <Checkbox label={item.type + item.id} value={item.id} onChange={handleChooseTicket} key={i} />;
+              tickets.map((ticket) => {
+                return <Checkbox label={ticket.type + ticket.id} value={ticket.id} onChange={handleChooseTicket} key={ticket.id} />;
               })
             ) : (
               <p>Талонов не осталось</p>

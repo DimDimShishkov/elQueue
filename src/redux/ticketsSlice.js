@@ -9,7 +9,7 @@ function setTicketsToLS(items) {
 
 if (!initialTickets || initialTickets.length === 0) {
   let ticketsArr = []; // для сгенерированных талонов
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 1; i++) {
     ticketsArr.push(generateTimetable(i));
   }
   ticketsArr.sort(
@@ -19,7 +19,7 @@ if (!initialTickets || initialTickets.length === 0) {
   initialTickets = ticketsArr;
 }
 
-function lastId(arr) {
+function lastId(arr = []) {
   let arrCopy = [...arr];
   arrCopy.sort(function (firstElement, secondElement) {
     return firstElement.id - secondElement.id;
@@ -49,7 +49,11 @@ export const ticketsSlice = createSlice({
     removeTicket: (state, action) => {
       const newTickets = state.tickets.filter((el) => el.id !== action.payload.id);
       state.tickets = newTickets;
-      state.ticketsLastId = lastId(state.tickets);
+      if (newTickets.length) {
+        state.ticketsLastId = lastId(state.tickets);
+      } else {
+        state.ticketsLastId = 0;
+      }
       setTicketsToLS(state.tickets);
     },
     // отредактировать талон
