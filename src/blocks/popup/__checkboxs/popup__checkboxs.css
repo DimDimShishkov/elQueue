@@ -1,0 +1,8 @@
+.popup__checkboxs {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+  max-width: 640px;
+  margin-top: 10px;
+}

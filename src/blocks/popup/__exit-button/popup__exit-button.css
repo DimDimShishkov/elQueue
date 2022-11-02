@@ -1,0 +1,15 @@
+.popup__exit-button {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  border: none;
+  background: url(../../../images/CloseIconDesctop.svg) center no-repeat;
+  background-size: 100%;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+}
+
+.popup__exit-button:hover {
+  opacity: 0.6;
+}

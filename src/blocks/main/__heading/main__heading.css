@@ -1,0 +1,10 @@
+.main__heading {
+  margin: 0;
+  width: 50%;
+  text-align: center;
+  font-size: 30px;
+  line-height: 33px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: rgb(255, 255, 255);
+}
