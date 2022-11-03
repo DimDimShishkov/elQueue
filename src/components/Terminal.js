@@ -40,8 +40,8 @@ export default function Terminal() {
   }, [selectedBranch]);
 
   // отправка формы
-  const handleSubmitAddForm = (evt) => {
-    evt.preventDefault();
+  const handleSubmitAddForm = (e) => {
+    e.preventDefault();
 
     // захардкодил обращение к серверу
     setButtonText("Идет загрузка...");

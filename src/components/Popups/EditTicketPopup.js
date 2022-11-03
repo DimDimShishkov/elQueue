@@ -1,12 +1,12 @@
-import { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { Checkbox } from "./Checkbox";
-import Timetable from "../../utils/Timetable.json";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { editTicket } from "../../redux/ticketsSlice";
+import { sortingTimetable } from "../../utils/helpers";
 import MockBranches from "../../utils/MockBranches.json";
 import MockDoctors from "../../utils/MockDoctors.json";
-import { editTicket } from "../../redux/ticketsSlice";
+import Timetable from "../../utils/Timetable.json";
+import { Checkbox } from "./Checkbox";
 import InfoPopup from "./InfoPopup";
-import { sortingTimetable } from "../../utils/helpers";
 
 /**
  * попап редактирования талона
@@ -24,8 +24,8 @@ export default function EditTicketPopup({ isOpen, onClose, chosenTicket }) {
 
   // закрытие попаппа по нажатию Esc
   useEffect(() => {
-    const closeOnEsc = (evt) => {
-      if (evt.key === "Escape") {
+    const closeOnEsc = (e) => {
+      if (e.key === "Escape") {
         onClose();
       }
     };
@@ -71,13 +71,12 @@ export default function EditTicketPopup({ isOpen, onClose, chosenTicket }) {
   // функция выбора доктора
   const handleChosenDoctor = (e) => {
     const { value } = e.target;
-    console.log(value)
     setSelectedDoctor(value);
   };
 
   // отправка формы
-  const handleSubmitEditForm = (evt) => {
-    evt.preventDefault();
+  const handleSubmitEditForm = (e) => {
+    e.preventDefault();
     const date2 = new Date(`${chosenTicket.date}T${selectedTime}`);
     const currentDate = new Date();
     const diffTime = (Date.parse(date2) - Date.parse(currentDate)) / 1000;
@@ -101,7 +100,7 @@ export default function EditTicketPopup({ isOpen, onClose, chosenTicket }) {
 
   return (
     <div className={`popup ${isOpen && "popup_opened"}`} onClick={() => onClose()}>
-      <div className="popup__container" onClick={(evt) => evt.stopPropagation()}>
+      <div className="popup__container" onClick={(e) => e.stopPropagation()}>
         <form className="popup__form" onSubmit={handleSubmitEditForm}>
           <p className="popup__subtitle">Выберите направление</p>
           <select onChange={handleChosenBranch} className="popup__select" defaultValue={selectedBranch}>

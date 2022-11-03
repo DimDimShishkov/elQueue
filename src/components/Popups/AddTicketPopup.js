@@ -24,8 +24,8 @@ export default function AddTicketPopup({ isOpen, onClose }) {
 
   // закрытие попаппа по нажатию Esc
   useEffect(() => {
-    const closeOnEsc = (evt) => {
-      if (evt.key === "Escape") {
+    const closeOnEsc = (e) => {
+      if (e.key === "Escape") {
         onClose();
       }
     };
@@ -38,7 +38,7 @@ export default function AddTicketPopup({ isOpen, onClose }) {
   // подсветка текущего времени
   useEffect(() => {
     setTimePoints(sortingTimetable(tickets));
-    setSelectedTime(sortingTimetable(tickets).find((item) => item.checked).time);
+    setSelectedTime(sortingTimetable(tickets).find((ticket) => ticket.checked).time);
     setSelectedBranch("A");
   }, []);
 
@@ -82,8 +82,8 @@ export default function AddTicketPopup({ isOpen, onClose }) {
   };
 
   // отправка формы
-  const handleSubmitEditForm = (evt) => {
-    evt.preventDefault();
+  const handleSubmitEditForm = (e) => {
+    e.preventDefault();
 
     // захардкодил обращение к серверу
     setButtonText("Идет загрузка...");
@@ -117,7 +117,7 @@ export default function AddTicketPopup({ isOpen, onClose }) {
 
   return (
     <div className={`popup ${isOpen && "popup_opened"}`} onClick={() => onClose()}>
-      <div className="popup__container" onClick={(evt) => evt.stopPropagation()}>
+      <div className="popup__container" onClick={(e) => e.stopPropagation()}>
         <form className="popup__form" onSubmit={handleSubmitEditForm}>
           <p className="popup__subtitle">Выберите направление</p>
           <select onChange={handleChosenBranch} className="popup__select" defaultValue={"A"}>
