@@ -1,0 +1,63 @@
+.panel {
+  grid-column-start: 2;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 0px 30px 5px rgb(0, 0, 0);
+  margin-right: 30px;
+  display: flex;
+  flex-direction: column;
+  /*   justify-content: center; */
+  align-items: center;
+  padding: 20px 0;
+  box-sizing: border-box;
+}
+
+.panel__logo {
+  width: 100px;
+  height: 100px;
+}
+
+.panel__button {
+  padding: 20px 0;
+  width: 90%;
+  margin: 20px 0;
+  font-size: 20px;
+  font-weight: 700;
+  background-color: rgba(0, 0, 255, 0.5);
+  background: linear-gradient(180deg, rgba(0,0,255,1) 20%, rgba(0,0,0,1) 80%);
+  color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 10px;
+}
+
+.panel__button:first-of-type {
+  margin-top: auto;
+}
+
+.panel__button:last-of-type {
+  margin-bottom: auto;
+}
+
+.panel__time-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.panel__time-text {
+  margin: 10px 0;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.panel__current-time {
+  font-size: 60px;
+  font-weight: 700;
+}
+
+.panel__current-date {
+  font-size: 30px;
+  font-weight: 700;
+}

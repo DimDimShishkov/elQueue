@@ -1,0 +1,6 @@
+.popup__select {
+  max-width: 200px;
+  background-color: rgb(63, 171, 251);
+  padding: 2px;
+  color: rgb(255, 255, 255);
+}

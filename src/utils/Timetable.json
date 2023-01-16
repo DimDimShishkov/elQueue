@@ -1,0 +1,72 @@
+[
+  {
+    "label": "9:00 - 10:00",
+    "name": "time1",
+    "value": 0,
+    "checked": false,
+    "time": "09:00"
+  },
+  {
+    "label": "10:00 - 11:00",
+    "name": "time2",
+    "value": 1,
+    "checked": false,
+    "time": "10:00"
+  },
+  {
+    "label": "11:00 - 12:00",
+    "name": "time3",
+    "value": 2,
+    "checked": false,
+    "time": "11:00"
+  },
+  {
+    "label": "12:00 - 13:00",
+    "name": "time4",
+    "value": 3,
+    "checked": false,
+    "time": "12:00"
+  },
+  {
+    "label": "13:00 - 14:00",
+    "name": "time5",
+    "value": 4,
+    "checked": false,
+    "time": "13:00"
+  },
+  {
+    "label": "14:00 - 15:00",
+    "name": "time6",
+    "value": 5,
+    "checked": false,
+    "time": "14:00"
+  },
+  {
+    "label": "15:00 - 16:00",
+    "name": "time7",
+    "value": 6,
+    "checked": false,
+    "time": "15:00"
+  },
+  {
+    "label": "16:00 - 17:00",
+    "name": "time8",
+    "value": 7,
+    "checked": false,
+    "time": "16:00"
+  },
+  {
+    "label": "17:00 - 18:00",
+    "name": "time9",
+    "value": 8,
+    "checked": false,
+    "time": "17:00"
+  },
+  {
+    "label": "18:00 - 19:00",
+    "name": "time10",
+    "value": 9,
+    "checked": false,
+    "time": "18:00"
+  }
+]

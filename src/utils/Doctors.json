@@ -1,0 +1,42 @@
+[
+  {
+    "value": "ivanov",
+    "branch": "A",
+    "text": "Иванов И.И."
+  },
+  {
+    "value": "petrov",
+    "branch": "A",
+    "text": "Петров П.П."
+  },
+  {
+    "value": "Turk",
+    "branch": "A",
+    "text": "Dr. Christopher Turk"
+  },
+  {
+    "value": "Cox",
+    "branch": "B",
+    "text": "Dr. Perry Cox"
+  },
+  {
+    "value": "sidorov",
+    "branch": "B",
+    "text": "Сидоров С.С."
+  },
+  {
+    "value": "Dorian",
+    "branch": "C",
+    "text": "Dr. John 'J.D.' Dorian"
+  },
+  {
+    "value": "Reid",
+    "branch": "C",
+    "text": "Dr. Elliot Reid"
+  },
+  {
+    "value": "Janitor",
+    "branch": "D",
+    "text": "Dr. Убор Щик"
+  }
+]
