@@ -1,5 +1,5 @@
-import { useState, useRef } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { removeTicket } from "../../redux/ticketsSlice";
 import PopupWithForm from "./PopupWithForm";
 
@@ -19,9 +19,7 @@ export default function EditTicketPopup({ isOpen, onClose }) {
   // функция поиска талона
   function handleFindingTicket(evt) {
     evt.preventDefault();
-    let findedTicket = tickets.find(
-      (elem) => elem.id === +ticketRef.current.value
-    );
+    let findedTicket = tickets.find((elem) => elem.id === +ticketRef.current.value);
     if (findedTicket) {
       setChosenTicket(findedTicket);
       setButtonText("Редактировать");
@@ -54,21 +52,11 @@ export default function EditTicketPopup({ isOpen, onClose }) {
   if (deleteForm) {
     form = (
       <div className="popup__form">
-        <p className="popup__subtitle">
-          Талон {chosenTicket.id} найден. Выберите действие:
-        </p>
-        <button
-          type="button"
-          className="popup__submit-button"
-          onClick={() => handleDeleteTicket(chosenTicket)}
-        >
+        <p className="popup__subtitle">Талон {chosenTicket.id} найден. Выберите действие:</p>
+        <button type="button" className="popup__submit-button" onClick={() => handleDeleteTicket(chosenTicket)}>
           Удалить
         </button>
-        <button
-          type="button"
-          className="popup__submit-button"
-          onClick={handleEditFormTitle}
-        >
+        <button type="button" className="popup__submit-button" onClick={handleEditFormTitle}>
           {buttonText}
         </button>
       </div>
@@ -77,12 +65,7 @@ export default function EditTicketPopup({ isOpen, onClose }) {
     form = (
       <form className="popup__form" onSubmit={handleFindingTicket}>
         <p className="popup__subtitle">Введите номер талона</p>
-        <input
-          className="popup__input"
-          placeholder="номер талона"
-          type="number"
-          ref={ticketRef}
-        ></input>
+        <input className="popup__input" placeholder="номер талона" type="number" ref={ticketRef}></input>
         <button type="submit" className="popup__submit-button">
           {buttonText}
         </button>

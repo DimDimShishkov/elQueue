@@ -1,0 +1,34 @@
+[
+  {
+    "branch": "A",
+    "text": "Иванов И.И."
+  },
+  {
+    "branch": "A",
+    "text": "Петров П.П."
+  },
+  {
+    "branch": "A",
+    "text": "Christopher Turk"
+  },
+  {
+    "branch": "B",
+    "text": "Perry Cox"
+  },
+  {
+    "branch": "B",
+    "text": "Сидоров С.С."
+  },
+  {
+    "branch": "C",
+    "text": "John Dorian"
+  },
+  {
+    "branch": "C",
+    "text": "Elliot Reid"
+  },
+  {
+    "branch": "D",
+    "text": "Убор Щик"
+  }
+]

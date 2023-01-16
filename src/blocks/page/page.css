@@ -11,5 +11,6 @@
   text-rendering: optimizeLegibility;
   display: grid;
   grid-template-columns: 1fr 400px;
+  grid-template-rows: minmax(100px, -webkit-max-content);
   grid-template-rows: minmax(100px, max-content)
 }

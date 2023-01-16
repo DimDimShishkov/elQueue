@@ -1,20 +1,14 @@
-import Ticket from "./Ticket";
 import { useSelector } from "react-redux";
+import Ticket from "./Ticket";
 
 export default function Main({ ticketToDelete }) {
   const { tickets } = useSelector((state) => state.tickets);
 
   let ticketsForRendering;
   if (tickets.length > 0) {
-    ticketsForRendering = tickets
-      .slice(0, 10)
-      .map((item, i) => (
-        <Ticket card={item} key={i} deleteTicket={ticketToDelete} />
-      ));
+    ticketsForRendering = tickets.slice(0, 10).map((item, i) => <Ticket card={item} key={i} deleteTicket={ticketToDelete} />);
   } else {
-    ticketsForRendering = (
-      <p className="main__text">На данный момент талонов нет</p>
-    );
+    ticketsForRendering = <p className="main__text">На данный момент талонов нет</p>;
   }
 
   return (
