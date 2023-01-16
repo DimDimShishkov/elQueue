@@ -1,6 +1,6 @@
 # Тестовое задание "Электронная очередь"
 
-![image](hthttps://raw.githubusercontent.com/DimDimShishkov/elQueue/main/elQueue.gif)
+![image](https://raw.githubusercontent.com/DimDimShishkov/elQueue/main/elQueue.gif)
 
 ### Обзор
 
