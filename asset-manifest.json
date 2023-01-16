@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/test_WaveAccess/static/css/main.b83576f2.css",
-    "main.js": "/test_WaveAccess/static/js/main.7b4b8418.js",
-    "static/media/background.jpg": "/test_WaveAccess/static/media/background.19bf6e3e6a2c9095d1af.jpg",
-    "static/media/logoScrubs.png": "/test_WaveAccess/static/media/logoScrubs.6785c2fb60fd3e1c12f2.png",
-    "static/media/Inter-Medium.woff?v=3.19": "/test_WaveAccess/static/media/Inter-Medium.9053572c46aeb4b16caa.woff",
-    "static/media/Inter-Black.woff?v=3.19": "/test_WaveAccess/static/media/Inter-Black.c6938660eec019fefd68.woff",
-    "static/media/Inter-Regular.woff?v=3.19": "/test_WaveAccess/static/media/Inter-Regular.8c206db99195777c6769.woff",
-    "static/media/Inter-Medium.woff2?v=3.19": "/test_WaveAccess/static/media/Inter-Medium.293fd13dbca5a3e450ef.woff2",
-    "static/media/Inter-Black.woff2?v=3.19": "/test_WaveAccess/static/media/Inter-Black.15ca31c0a2a68f76d2d1.woff2",
-    "static/media/Inter-Regular.woff2?v=3.19": "/test_WaveAccess/static/media/Inter-Regular.c8ba52b05a9ef10f4758.woff2",
-    "index.html": "/test_WaveAccess/index.html",
-    "static/media/CloseIconDesctop.svg": "/test_WaveAccess/static/media/CloseIconDesctop.039f1f5203f653b4bacd.svg",
-    "main.b83576f2.css.map": "/test_WaveAccess/static/css/main.b83576f2.css.map",
-    "main.7b4b8418.js.map": "/test_WaveAccess/static/js/main.7b4b8418.js.map"
+    "main.css": "/elQueue/static/css/main.aa2ef85b.css",
+    "main.js": "/elQueue/static/js/main.32bdb7c9.js",
+    "static/media/background.jpg": "/elQueue/static/media/background.19bf6e3e6a2c9095d1af.jpg",
+    "static/media/logoScrubs.png": "/elQueue/static/media/logoScrubs.6785c2fb60fd3e1c12f2.png",
+    "static/media/Inter-Medium.woff?v=3.19": "/elQueue/static/media/Inter-Medium.9053572c46aeb4b16caa.woff",
+    "static/media/Inter-Black.woff?v=3.19": "/elQueue/static/media/Inter-Black.c6938660eec019fefd68.woff",
+    "static/media/Inter-Regular.woff?v=3.19": "/elQueue/static/media/Inter-Regular.8c206db99195777c6769.woff",
+    "static/media/Inter-Medium.woff2?v=3.19": "/elQueue/static/media/Inter-Medium.293fd13dbca5a3e450ef.woff2",
+    "static/media/Inter-Black.woff2?v=3.19": "/elQueue/static/media/Inter-Black.15ca31c0a2a68f76d2d1.woff2",
+    "static/media/Inter-Regular.woff2?v=3.19": "/elQueue/static/media/Inter-Regular.c8ba52b05a9ef10f4758.woff2",
+    "index.html": "/elQueue/index.html",
+    "static/media/CloseIconDesctop.svg": "/elQueue/static/media/CloseIconDesctop.039f1f5203f653b4bacd.svg",
+    "main.aa2ef85b.css.map": "/elQueue/static/css/main.aa2ef85b.css.map",
+    "main.32bdb7c9.js.map": "/elQueue/static/js/main.32bdb7c9.js.map"
   },
   "entrypoints": [
-    "static/css/main.b83576f2.css",
-    "static/js/main.7b4b8418.js"
+    "static/css/main.aa2ef85b.css",
+    "static/js/main.32bdb7c9.js"
   ]
 }
